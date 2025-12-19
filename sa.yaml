@@ -21,7 +21,7 @@ subjects:
 # You can specify more than one "subject"
 - kind: ServiceAccount
   name: aws-mysql-password # "name" is case sensitive
-  apiGroup: rbac.authorization.k8s.io
+  namespace: roboshop
 roleRef: 
   # "roleRef" specifies the binding to a Role / ClusterRole
   kind: Role #this must be Role or ClusterRole
@@ -39,3 +39,4 @@ spec:
   containers:
   - name: aws-cli
     image: amazon/aws-cli
+    command: ["sleep", "10000"]

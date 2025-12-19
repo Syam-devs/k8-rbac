@@ -34,7 +34,6 @@ kind: Pod
 metadata: 
   name: aws-cli
   namespace: roboshop
-  purpose: sa 
 spec:
   serviceAccount: aws-mysql-password
   containers:

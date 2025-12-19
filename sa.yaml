@@ -33,6 +33,7 @@ apiVersion: v1
 kind: pod
 metadata: 
   name: aws-cli
+  namespace: roboshop
   purpose: sa 
 spec:
   serviceAccount: aws-mysql-password

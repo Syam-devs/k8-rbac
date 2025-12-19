@@ -1,0 +1,48 @@
+# kubectl get configmap aws-auth -n kube-system -o yaml
+# aws sts get-caller-identity check which user
+# after login to suresh and add credentials
+# install kubectl and conncet kubectl to an eks cluster by creating a kubeconfig file 
+apiVersion: v1
+data:
+  mapRoles: |
+    - rolearn: arn:aws:iam::111122223333:role/my-role
+      username: system:node:{{EC2PrivateDNSName}}
+    - groups:
+      - eks-console-dashboard-full-access-group
+      rolearn: arn:aws:iam::111122223333:role/my-console-viewer-role
+      username: my-console-viewer-role
+  mapUsers: |
+    - groups:
+      - system:masters
+      userarn: #arn change
+      username: suresh
+
+
+#if u need api version "kubectl api-resources | grep persistent"
+
+## service account
+
+# It is a non human user that uses to run. by default when we create namespace service account with name is default created
+
+
+# whenever namespace created by default service account also created..
+# kubectl get sa -n roboshop
+# kubectl describe sa default -n roboshop
+# kubectl describe pod <name> -n roboshop
+# kubectl get sa 
+---
+
+# 1. create oidc provider
+# 2. create policy and attach permissions
+# 3. create iamserviceacccount
+# 4. role and RoleBinding 
+# 4.1 in role binding replace the api group with namespace 
+# 5. aws cli to get secret value check in main admin server
+# 6. if we want to check in pod  it was running or not just install the aws cli or ru the image
+
+# Now i have to practice ingress,rbac,service account 
+
+69-session
+
+
+
